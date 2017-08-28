@@ -1,0 +1,4 @@
+*.csv
+output/*
+!output/.keep
+!*sample.csv

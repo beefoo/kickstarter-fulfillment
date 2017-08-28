@@ -1,0 +1,2 @@
+MerchantFulfillmentOrderID,DisplayableOrderID,DisplayableOrderDate,MerchantSKU,Quantity,MerchantFulfillmentOrderItemID,GiftMessage,DisplayableComment,PerUnitDeclaredValue,DisplayableOrderComment,DeliverySLA,AddressName,AddressFieldOne,AddressFieldTwo,AddressFieldThree,AddressCity,AddressCountryCode,AddressStateOrRegion,AddressPostalCode,AddressPhoneNumber,NotificationEmail,FulfillmentAction,MarketplaceID
+,,2017-08-26T14:00:00,XX-XXXX-XXXX,1,XXXX-01,,,15,Thank you for your support!,Standard,,,,,,US,,,,,Ship,
