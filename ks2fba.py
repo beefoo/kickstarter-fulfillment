@@ -97,8 +97,25 @@ for f in os.listdir(args.INPUT_DIR):
                 row.append(value)
             outputRows.append(row)
 
-with open(args.OUTPUT_FILE, 'wb') as f:
-    writer = csv.writer(f, delimiter="\t", dialect='excel')
-    writer.writerow([h["name"] for h in HEADERS])
-    writer.writerows(r for r in outputRows)
-    print "Wrote %s rows to %s" % (len(outputRows), args.OUTPUT_FILE)
+
+
+out = outputRows[:]
+i = 1
+while len(out) > 0:
+    filename = args.OUTPUT_FILE.replace(".tsv", str(i)+".tsv")
+    with open(filename, 'wb') as f:
+        writer = csv.writer(f, delimiter="\t", dialect='excel')
+        writer.writerow([h["name"] for h in HEADERS])
+
+        if len(out) > 100:
+            _out = out[:100]
+            writer.writerows(r for r in _out)
+            out = out[100:]
+            print "Wrote %s rows to %s" % (100, filename)
+
+        else:
+            writer.writerows(r for r in out)
+            print "Wrote %s rows to %s" % (len(out), filename)
+            out = []
+            break
+    i += 1
